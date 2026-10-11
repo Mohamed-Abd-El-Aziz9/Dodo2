@@ -396,6 +396,43 @@
     });
   }
 
+  /* ---------- Light / dark theme ----------
+     Follows the browser's setting until the guest chooses; the choice is
+     remembered. The head script applies a saved choice before first paint. */
+  function initTheme() {
+    var btn = document.getElementById("themeToggle");
+    if (!btn) return;
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+
+    function effective() {
+      var chosen = root.getAttribute("data-theme");
+      return chosen || (mq && mq.matches ? "dark" : "light");
+    }
+
+    function sync() {
+      var dark = effective() === "dark";
+      btn.setAttribute("aria-pressed", String(dark));
+      Array.prototype.forEach.call(metas, function (m) {
+        m.setAttribute("content", dark ? "#0F1626" : "#F7F1E3");
+      });
+    }
+
+    btn.addEventListener("click", function () {
+      var next = effective() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("invite-theme", next); } catch (e) {}
+      sync();
+    });
+
+    if (mq) {
+      if (mq.addEventListener) mq.addEventListener("change", sync);
+      else if (mq.addListener) mq.addListener(sync);
+    }
+    sync();
+  }
+
   /* ---------- Button press ripple from the touch point ---------- */
   function initButtonFeedback() {
     document.querySelectorAll(".btn").forEach(function (btn) {
@@ -423,6 +460,7 @@
     initMusic();
     initReveal();
     initButtonFeedback();
+    initTheme();
     // the couple illustration animates once per session (~7s incl. the hero entrance)
     setTimeout(function () {
       try { sessionStorage.setItem("couple-played", "1"); } catch (e) {}

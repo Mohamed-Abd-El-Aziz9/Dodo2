@@ -21,6 +21,22 @@
 
   --gold-grad: linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 45%, var(--gold-3) 100%);
 
+  /* surface + accent tokens (redefined by the Midnight Folio theme) */
+  --laid-line: rgba(120, 92, 40, 0.035);
+  --glass: rgba(251, 247, 236, 0.9);
+  --glass-shadow: rgba(90, 66, 24, 0.35);
+  --vignette: rgba(150, 118, 62, 0.09);
+  --frame-inner: rgba(31, 53, 87, 0.35);
+  --btn-line-bg: rgba(251, 247, 236, 0.6);
+  --btn-line-hover-bg: var(--lapis);
+  --btn-line-hover-ink: var(--lapis-ink);
+  --slip-highlight: rgba(255, 255, 255, 0.8);
+  --photo-shadow: rgba(90, 66, 24, 0.18);
+  --svg-line: #1F3557;
+  --band-bg: var(--lapis);
+  --accent: var(--lapis);
+  color-scheme: light;
+
   --f-names: "Aref Ruqaa", "Amiri", "Times New Roman", serif;
   --f-quran: "Amiri Quran", "Amiri", "Times New Roman", serif;
   --f-text: "Amiri", "Times New Roman", serif;
@@ -60,7 +76,7 @@ body {
   background-color: var(--paper);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
-    repeating-linear-gradient(90deg, transparent 0 27px, rgba(120, 92, 40, 0.035) 27px 28px);
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--laid-line) 27px 28px);
   font-size: 17px;
   line-height: 1.9;
   min-height: 100vh;
@@ -89,7 +105,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--lapis);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
   border-radius: 3px;
 }
@@ -156,7 +172,7 @@ button {
   bottom: 0;
   width: 50.5%;
   background-color: var(--paper);
-  background-image: repeating-linear-gradient(90deg, transparent 0 27px, rgba(120, 92, 40, 0.04) 27px 28px);
+  background-image: repeating-linear-gradient(90deg, transparent 0 27px, var(--laid-line) 27px 28px);
   transition: transform 1.05s var(--ease-io);
 }
 
@@ -253,10 +269,10 @@ button {
   border-radius: 999px;
   border: 1px solid var(--gold-faint);
   color: var(--ink);
-  background-color: rgba(251, 247, 236, 0.9);
+  background-color: var(--glass);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0 6px 18px -8px rgba(90, 66, 24, 0.35);
+  box-shadow: 0 6px 18px -8px var(--glass-shadow);
   transition: transform 0.2s ease, box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.6s ease;
 }
 
@@ -314,7 +330,7 @@ button {
   to { transform: scaleY(1); }
 }
 
-.music-toggle:hover { border-color: var(--gold-line); box-shadow: 0 8px 22px -8px rgba(90, 66, 24, 0.45); }
+.music-toggle:hover { border-color: var(--gold-line); box-shadow: 0 8px 22px -8px var(--glass-shadow); }
 .music-toggle:active { transform: scale(0.96); }
 
 .music-toggle[aria-pressed="true"] { border-color: var(--gold-line); }
@@ -345,7 +361,7 @@ button {
   text-align: center;
   overflow: hidden;
   isolation: isolate;
-  background-image: radial-gradient(ellipse 85% 70% at 50% 50%, transparent 55%, rgba(150, 118, 62, 0.09) 100%);
+  background-image: radial-gradient(ellipse 85% 70% at 50% 50%, transparent 55%, var(--vignette) 100%);
 }
 
 /* Jadwal frame: gold outer rule + lapis inner rule */
@@ -360,7 +376,7 @@ button {
   content: "";
   position: absolute;
   inset: 4px;
-  border: 0.5px solid rgba(31, 53, 87, 0.35);
+  border: 0.5px solid var(--frame-inner);
 }
 
 .names-wrap {
@@ -682,7 +698,7 @@ button {
   overflow: hidden;
   text-align: center;
   color: var(--lapis-ink);
-  background-color: var(--lapis);
+  background-color: var(--band-bg);
   background-image:
     radial-gradient(ellipse 70% 90% at 50% 50%, rgba(255, 255, 255, 0.06), transparent 70%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23E9D4A0' stroke-opacity='0.13' stroke-width='0.8'%3E%3Cpolygon points='40,8 48.8,18.75 62.63,17.37 61.25,31.2 72,40 61.25,48.8 62.63,62.63 48.8,61.25 40,72 31.2,61.25 17.37,62.63 18.75,48.8 8,40 18.75,31.2 17.37,17.37 31.2,18.75'/%3E%3Cpath d='M40 0V8M40 72V80M0 40H8M72 40H80'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='80' cy='0' r='6'/%3E%3Ccircle cx='0' cy='80' r='6'/%3E%3Ccircle cx='80' cy='80' r='6'/%3E%3C/g%3E%3C/svg%3E");
@@ -877,15 +893,15 @@ button {
 .btn--line {
   color: var(--ink);
   border: 1px solid var(--gold-2);
-  background-color: rgba(251, 247, 236, 0.6);
+  background-color: var(--btn-line-bg);
 }
 
 .btn--line::after { background: rgba(196, 162, 100, 0.35); }
 
 .btn--line:hover {
-  background-color: var(--lapis);
-  border-color: var(--lapis);
-  color: var(--lapis-ink);
+  background-color: var(--btn-line-hover-bg);
+  border-color: var(--btn-line-hover-bg);
+  color: var(--btn-line-hover-ink);
   box-shadow: 0 8px 24px rgba(31, 53, 87, 0.22);
 }
 
@@ -941,9 +957,9 @@ button {
   color: var(--ink);
   text-align: start;
   background-color: var(--slip);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, var(--shadow-soft);
+  box-shadow: 0 1px 0 var(--slip-highlight) inset, var(--shadow-soft);
   clip-path: polygon(18px 0, 100% 0, 100% 100%, 0 100%, 0 18px);
-  border-inline-start: 2px solid var(--lapis);
+  border-inline-start: 2px solid var(--accent);
 }
 
 .rsvp__preview::after {
@@ -962,7 +978,7 @@ button {
   margin-top: 14px;
   font-family: var(--f-text);
   font-size: 0.95rem;
-  color: var(--lapis);
+  color: var(--accent);
 }
 
 /* ============================================================
@@ -973,7 +989,7 @@ button {
   text-align: center;
   background-color: var(--paper-2);
   padding: var(--space-section) var(--gutter) calc(var(--safe-b) + var(--space-section) * 0.75);
-  background-image: radial-gradient(ellipse 80% 90% at 50% 100%, rgba(150, 118, 62, 0.1), transparent 70%);
+  background-image: radial-gradient(ellipse 80% 90% at 50% 100%, var(--vignette), transparent 70%);
 }
 
 .colophon::before {
@@ -1395,7 +1411,7 @@ html:not(.js) .music-toggle,
 
 .portrait__img {
   object-fit: contain;
-  filter: drop-shadow(0 12px 18px rgba(90, 66, 24, 0.18));
+  filter: drop-shadow(0 12px 18px var(--photo-shadow));
 }
 
 .portrait__frame {
@@ -1477,3 +1493,109 @@ html:not(.js) .music-toggle,
   /* keep the bismillah cartouche clear of the fixed music control */
   .folio { padding-top: calc(var(--safe-t) + 70px); }
 }
+
+/* ============================================================
+   Midnight Folio — dark theme
+   Applied automatically for dark-mode browsers, or by the
+   ☾ / ☀ toggle (html[data-theme]). Only tokens change, so every
+   section follows. Declaring color-scheme also stops browsers
+   from force-inverting the page.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1626;
+    --paper-2: #141D31;
+    --paper-3: #1D2840;
+    --slip: #18223A;
+    --ink: #F2E7CF;
+    --ink-soft: #C8BBA0;
+    --gold-1: #F3E1B2;
+    --gold-2: #D8B875;
+    --gold-3: #B08C4A;
+    --gold-text: #DCC082;
+    --gold-line: rgba(216, 184, 117, 0.5);
+    --gold-faint: rgba(216, 184, 117, 0.2);
+    --laid-line: rgba(216, 184, 117, 0.03);
+    --glass: rgba(20, 29, 49, 0.88);
+    --glass-shadow: rgba(0, 0, 0, 0.55);
+    --vignette: rgba(0, 0, 0, 0.32);
+    --frame-inner: rgba(150, 175, 215, 0.28);
+    --btn-line-bg: rgba(20, 29, 49, 0.55);
+    --btn-line-hover-bg: var(--gold-2);
+    --btn-line-hover-ink: #17110A;
+    --slip-highlight: rgba(255, 255, 255, 0.05);
+    --photo-shadow: rgba(0, 0, 0, 0.5);
+    --shadow-soft: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+    --svg-line: #8FA7CF;
+    --band-bg: #172744;
+    --accent: #E4C988;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0F1626;
+  --paper-2: #141D31;
+  --paper-3: #1D2840;
+  --slip: #18223A;
+  --ink: #F2E7CF;
+  --ink-soft: #C8BBA0;
+  --gold-1: #F3E1B2;
+  --gold-2: #D8B875;
+  --gold-3: #B08C4A;
+  --gold-text: #DCC082;
+  --gold-line: rgba(216, 184, 117, 0.5);
+  --gold-faint: rgba(216, 184, 117, 0.2);
+  --laid-line: rgba(216, 184, 117, 0.03);
+  --glass: rgba(20, 29, 49, 0.88);
+  --glass-shadow: rgba(0, 0, 0, 0.55);
+  --vignette: rgba(0, 0, 0, 0.32);
+  --frame-inner: rgba(150, 175, 215, 0.28);
+  --btn-line-bg: rgba(20, 29, 49, 0.55);
+  --btn-line-hover-bg: var(--gold-2);
+  --btn-line-hover-ink: #17110A;
+  --slip-highlight: rgba(255, 255, 255, 0.05);
+  --photo-shadow: rgba(0, 0, 0, 0.5);
+  --shadow-soft: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+  --svg-line: #8FA7CF;
+  --band-bg: #172744;
+  --accent: #E4C988;
+  color-scheme: dark;
+}
+
+body { transition: background-color 0.4s ease, color 0.4s ease; }
+
+/* lapis hairlines inside inline SVG follow the theme */
+.folio__cartouche path[stroke="#1F3557"],
+.js-inline circle[stroke="#1F3557"],
+.portrait__line--inner { stroke: var(--svg-line); }
+.venue__needle path[fill="#1F3557"] { fill: var(--svg-line); }
+
+/* ---------- theme toggle (mirrors the music control) ---------- */
+.theme-toggle {
+  position: fixed;
+  top: calc(var(--safe-t) + 22px);
+  inset-inline-start: 22px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold-faint);
+  color: var(--gold-text);
+  background-color: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px -8px var(--glass-shadow);
+  transition: transform 0.2s ease, border-color 0.35s ease, opacity 0.6s ease, background-color 0.4s ease;
+}
+
+.theme-toggle svg { width: 19px; height: 19px; grid-area: 1 / 1; }
+.theme-toggle:hover { border-color: var(--gold-line); }
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle[aria-pressed="true"] .icon-moon,
+.theme-toggle[aria-pressed="false"] .icon-sun { display: none; }
+
+html:not(.js) .theme-toggle { display: none; }
+.with-cover:not(.cover-done) .theme-toggle { opacity: 0; pointer-events: none; }
