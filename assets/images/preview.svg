@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      .bg { fill: #FAF8F2; }
+      .gold { stroke: #B69A60; }
+      .gold-soft { stroke: #B69A60; stroke-opacity: 0.45; }
+      .text { fill: #292720; font-family: "Amiri", "Times New Roman", serif; }
+      .gold-text { fill: #B69A60; font-family: "Amiri", "Times New Roman", serif; }
+      .label { fill: #6B665B; font-family: "Cairo", "Segoe UI", sans-serif; letter-spacing: 8px; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="630"/>
+
+  <!-- outer frame -->
+  <rect x="60" y="60" width="1080" height="510" fill="none" class="gold-soft" stroke-width="1"/>
+  <rect x="78" y="78" width="1044" height="474" fill="none" class="gold-soft" stroke-width="0.5"/>
+
+  <!-- ornament top -->
+  <g transform="translate(600, 170)" class="gold">
+    <line x1="-180" y1="0" x2="-30" y2="0" stroke-width="0.8"/>
+    <line x1="30" y1="0" x2="180" y2="0" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="6" fill="none" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="2" fill="#B69A60"/>
+  </g>
+
+  <text x="600" y="250" text-anchor="middle" class="gold-text" font-size="34">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</text>
+
+  <text x="600" y="320" text-anchor="middle" class="label" font-size="20">دعوة زفاف</text>
+
+  <text x="600" y="410" text-anchor="middle" class="text" font-size="66">[GROOM_NAME]  &amp;  [BRIDE_NAME]</text>
+
+  <!-- ornament bottom -->
+  <g transform="translate(600, 470)" class="gold">
+    <line x1="-180" y1="0" x2="-30" y2="0" stroke-width="0.8"/>
+    <line x1="30" y1="0" x2="180" y2="0" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="6" fill="none" stroke-width="0.8"/>
+  </g>
+
+  <text x="600" y="530" text-anchor="middle" class="text" font-size="28" font-family="Cairo, sans-serif">الجمعة، ١٦ أكتوبر ٢٠٢٦</text>
+</svg>

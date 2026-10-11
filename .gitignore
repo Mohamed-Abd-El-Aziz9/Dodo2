@@ -1,0 +1,3 @@
+# Source media kept locally only — the site uses the extracted/cropped versions in assets/
+*.mp4
+WhatsApp Image*.jpeg
